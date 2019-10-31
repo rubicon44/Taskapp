@@ -1,0 +1,24 @@
+h1 タスクの詳細
+
+.nav.justify-content-end
+  = link_to '一覧', blogs_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Blog.human_attribute_name(:id)
+      td= @blog.id
+    tr
+      th= Blog.human_attribute_name(:name)
+      td= @blog.name
+    tr
+      th= Blog.human_attribute_name(:description)
+      td= auto_link(simple_format(h(@blog.description), {}, sanitize: false, wrapper_tag: "div"))
+    tr
+      th= Blog.human_attribute_name(:created_at)
+      td= @blog.created_at
+    tr
+      th= Blog.human_attribute_name(:updated_at)
+      td= @blog.updated_at
+
+= link_to '編集', edit_blog_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @blog, method: :delete, data: { confirm: "タスク「#{@blog.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'

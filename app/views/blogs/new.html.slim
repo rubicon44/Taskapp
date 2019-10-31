@@ -1,0 +1,21 @@
+h1 タスクの新規登録
+
+.nav.justify-content-end
+  = link_to '一覧', blogs_path, class: 'nav-link'
+
+/ 一旦、下記の長い記述で生成しておく。
+/= render partial: 'form', locals: { blog: @blog }
+
+- if @blog.errors.present?
+  ul#error_explanation
+    - @blog.errors.full_messages.each do |message|
+      li= message
+
+= form_with model: @blog, local: true, url: confirm_new_blog_path do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control', id: 'blog_name'
+  .form-group
+    = f.label :description
+    = f.text_area :description, rows: 5, class: 'form-control', id: 'blog_description'
+  = f.submit '確認', class: 'btn btn-primary'

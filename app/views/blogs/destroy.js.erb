@@ -1,0 +1,5 @@
+document.querySelector("#blog-<%= @blog.id %>").style.display = 'none';
+
+var message = document.createElement('p');
+message.innerText = 'タスク「<% @blog.name %>」を削除しました。残りのタスクは<% Blog.count %>件です。';
+document.querySelector('table').insertAdjcentElement('beforebegin', message);

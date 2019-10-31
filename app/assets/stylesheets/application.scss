@@ -1,0 +1,5 @@
+@import "bootstrap";
+@import "blogs";
+
+// デフォルトのapp/assets/stylesheets/application.cssを削除した後に、このファイルで'bootstrap'を読み込むと、全ての関連するhtml（slim）ファイルに、bootstrapが適用される。
+// 上記以外にも、本プロジェクト環境において、新たにscssファイルを読み込みたい場合にも、この「application.scss」に「@import "~"」と記述するだけで、全てのhtmlファイルでそのscssが適用されるようになる。（例：blogs.scss → @import "blogs"）
